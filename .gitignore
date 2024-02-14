@@ -5,8 +5,9 @@
 
 # local env files
 .env
-.env*.local
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+build/
