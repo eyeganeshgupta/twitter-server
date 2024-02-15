@@ -64,13 +64,14 @@ const queries = {
     return userToken;
   },
 
-  getCurrentUser: async(parent: any, args: any, ctx: GraphqlContext) => {
+  getCurrentUser: async (parent: any, args: any, ctx: GraphqlContext) => {
     const id = ctx.user?.id;
     if (!id) {
       return null;
     }
-    // return ctx.user;
-  }
+    const user = await prismaClient.user.findUnique({ where: { id } });
+    return user;
+  },
 };
 
 export const resolvers = { queries };
